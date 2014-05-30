@@ -6,8 +6,8 @@ C# client skeleton for Lean Poker For more information visit: http://leanpoker.o
 
 Build 
 ---------
-Uses Nancy Self Host to host the NancyModule called: "PokerPlayerModule"
- via nuget
+Uses Nancy Self Host to host the NancyModule called: "PokerPlayerModule"   
+Grab Nancy and Nunit via nuget
  
  
 Run
