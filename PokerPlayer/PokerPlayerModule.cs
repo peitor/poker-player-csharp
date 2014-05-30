@@ -28,7 +28,7 @@ namespace PokerPlayer
 
             this.Post["/version"] = x =>
             {
-                return string.Concat("I am running version: ", Version);
+                return Version;
             };
 
 
