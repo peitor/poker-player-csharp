@@ -25,13 +25,13 @@ namespace PokerPlayerCsharp_NancyHost
     /*
         Nancy Modules are globally discovered. Modules can be declared anywhere you like, just as long as they are available in the application domain at runtime.
     */
-    public class Module : NancyModule
+    public class PokerPlayerModule : NancyModule
     {
         private const string TeamName = "NancyLovers";
 
         private const string Version = "0.1";
 
-        public Module()
+        public PokerPlayerModule()
         {
             this.Get["/check"] = x =>
             {
