@@ -59,7 +59,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PokerPlayerCsharp-NancyHost\PokerPlayer.csproj">
+    <ProjectReference Include="..\PokerPlayer\PokerPlayer.csproj">
       <Project>{D1718095-2842-4C95-8D28-E5E9342DB13C}</Project>
       <Name>PokerPlayer</Name>
     </ProjectReference>
