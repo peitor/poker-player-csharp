@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PokerPlayer")]
+[assembly: AssemblyTitle("PokerPlayerCsharp-NancyHost")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zuehlke Engineering AG")]
-[assembly: AssemblyProduct("PokerPlayer")]
+[assembly: AssemblyProduct("PokerPlayerCsharp-NancyHost")]
 [assembly: AssemblyCopyright("Copyright © Zuehlke Engineering AG 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("90bc959c-7f96-48a3-bc59-240b008df90b")]
+[assembly: Guid("20288670-6479-4cd8-ae75-e3398e08d81b")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,4 +1,4 @@
-﻿namespace Host.Generated
+﻿namespace PokerPlayer.Generated
 {
     // Generated from https://github.com/lean-poker/poker-croupier/wiki/Player-API 
     public class GameState
