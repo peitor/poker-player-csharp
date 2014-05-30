@@ -1,5 +1,5 @@
-﻿PokerPlayer.exe
+HostConsole.exe
 
-bin\PokerPlayer.exe
+bin\HostConsole.exe
 
-bin\Debug\PokerPlayer.exe
+bin\Debug\HostConsole.exe
