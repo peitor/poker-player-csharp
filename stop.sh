@@ -1,1 +1,1 @@
-﻿Taskkill /IM PokerPlayer.exe /F
+﻿Taskkill /IM HostConsole.exe /F
