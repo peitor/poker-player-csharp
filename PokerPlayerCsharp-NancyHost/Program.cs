@@ -8,6 +8,7 @@ using Nancy.IO;
 
 namespace PokerPlayerCsharp_NancyHost
 {
+    using Nancy.ModelBinding;
 
     class Program
     {
@@ -46,27 +47,19 @@ namespace PokerPlayerCsharp_NancyHost
 
             this.Post["/bet_request"] = x =>
             {
-                string content = Request.Body.ReadAsString();
-                JavaScriptSerializer xxx = new JavaScriptSerializer();
-                var gameState = xxx.Deserialize<GameState>(content);
-
-                // #1 Does not exist. Mentioned here: http://lucisferre.net/2011/01/23/a-restful-weekend-with-nancy/
-                // Request.Body.FromJson<GameState>();
-
-                // #2 Does not work 
-                // GameState gameState = this.Bind<GameState>(bindingConfig);
-
-                // #3 BindingConfig doesn't change anything here
-                // GameState gameState = x as GameState;
-                // var bindingConfig = new BindingConfig();
-                // bindingConfig.BodyOnly = true;
-                // GameState gameState = this.Bind<GameState>(bindingConfig);
+                // HACK: If Bind<> doesn't work use this ;-)
+                //   string content = Request.Body.ReadAsString();
+                //    JavaScriptSerializer xxx = new JavaScriptSerializer();
+                //    var gameState = xxx.Deserialize<GameState>(content);
+                
+                GameState gameState = this.Bind<GameState>();
                 if (gameState != null)
                 {
                     Console.WriteLine(gameState.small_blind);
+                    return "200"; // HttpStatusCode.OK
                 }
 
-                return "0";
+                return "-1";
             };
 
             this.Post["/showdown"] = x =>
