@@ -1,13 +1,13 @@
-﻿using System;
-using Host.Generated;
-using Nancy;
-using Nancy.Json;
-using Nancy.Hosting.Self;
-using System.IO;
-using Nancy.IO;
-
-namespace PokerPlayerCsharp_NancyHost
+﻿namespace PokerPlayer
 {
+    using System;
+    using System.IO;
+
+    using Host.Generated;
+
+    using Nancy;
+    using Nancy.Hosting.Self;
+    using Nancy.IO;
     using Nancy.ModelBinding;
 
     class Program

@@ -6,7 +6,7 @@ namespace Specs
 
     using NUnit.Framework;
 
-    using PokerPlayerCsharp_NancyHost;
+    using PokerPlayer;
 
     [TestFixture]
     public class PokerPlayerSpecs

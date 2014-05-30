@@ -59,9 +59,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PokerPlayerCsharp-NancyHost\PokerPlayerCsharp-NancyHost.csproj">
+    <ProjectReference Include="..\PokerPlayerCsharp-NancyHost\PokerPlayer.csproj">
       <Project>{D1718095-2842-4C95-8D28-E5E9342DB13C}</Project>
-      <Name>PokerPlayerCsharp-NancyHost</Name>
+      <Name>PokerPlayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

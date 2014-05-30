@@ -12,6 +12,6 @@ Grab Nancy and Nunit via nuget
  
 Run
 ---------
-Just start the Console executable: \bin\Debug\PokerPlayerCsharp-NancyHost.exe
+Just start the Console executable: \bin\Debug\PokerPlayer.exe
 
 

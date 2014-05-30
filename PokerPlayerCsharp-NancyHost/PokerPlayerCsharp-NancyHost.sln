@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerPlayerCsharp-NancyHost", "PokerPlayerCsharp-NancyHost.csproj", "{D1718095-2842-4C95-8D28-E5E9342DB13C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerPlayer", "PokerPlayer.csproj", "{D1718095-2842-4C95-8D28-E5E9342DB13C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specs", "..\Specs\Specs.csproj", "{57524893-E40A-48C8-A2F5-0354AF752CB9}"
 EndProject

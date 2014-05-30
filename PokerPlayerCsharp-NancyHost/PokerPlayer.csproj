@@ -7,8 +7,8 @@
     <ProjectGuid>{D1718095-2842-4C95-8D28-E5E9342DB13C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PokerPlayerCsharp_NancyHost</RootNamespace>
-    <AssemblyName>PokerPlayerCsharp-NancyHost</AssemblyName>
+    <RootNamespace>PokerPlayer</RootNamespace>
+    <AssemblyName>PokerPlayer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,1 +1,1 @@
-﻿Taskkill /IM PokerPlayerCsharp-NancyHost.exe /F
+﻿Taskkill /IM PokerPlayer.exe /F

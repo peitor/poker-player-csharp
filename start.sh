@@ -1,3 +1,5 @@
-﻿PokerPlayerCsharp-NancyHost.exe
-bin\PokerPlayerCsharp-NancyHost.exe
-bin\Debug\PokerPlayerCsharp-NancyHost.exe
+﻿PokerPlayer.exe
+
+bin\PokerPlayer.exe
+
+bin\Debug\PokerPlayer.exe
