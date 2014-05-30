@@ -31,7 +31,7 @@ namespace Specs
 
 
         [Test]
-        public void Post_bet_request()
+        public void Post_betrequest_WithFullSampleMessage()
         {
             var response = browser.Post("/bet_request", with =>
             {
