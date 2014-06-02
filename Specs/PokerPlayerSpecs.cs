@@ -1,4 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
+
 namespace Specs
 {
     using Nancy;
@@ -11,17 +12,40 @@ namespace Specs
     [TestFixture]
     public class PokerPlayerSpecs
     {
-        readonly Browser browser = new Browser(with => with.Module(new PokerPlayerModule()));
+        private readonly Browser browser = new Browser(with => with.Module(new PokerPlayerModule()));
 
         [Test]
         public void Get_check()
         {
-            var response = browser.Post("/", with =>
-            {
-                // request is sent over HTTP
-                with.HttpRequest();
-                with.FormValue("action", "check");
-            });
+            var response = this.browser.Post("/", with => { with.FormValue("action", "check"); });
+
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Test]
+        public void Post_Showdown()
+        {
+            var response = this.browser.Post(
+                "/",
+                with =>
+                {
+                    with.FormValue("action", "showdown");
+                    with.FormValue("game_state", Constants.fullSampleGameState);
+                });
+
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Test]
+        public void Post_betrequest_WithFullSampleMessage()
+        {
+            var response = this.browser.Post(
+                "/",
+                with =>
+                {
+                    with.FormValue("action", "bet_request");
+                    with.FormValue("game_state", Constants.fullSampleGameState);
+                });
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
@@ -29,88 +53,21 @@ namespace Specs
         [Test]
         public void Post_version()
         {
-            var response = browser.Post("/version");
+            var response = this.browser.Post("/", with => { with.FormValue("action", "version"); });
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
-
-
-        [Test]
-        public void Post_betrequest_WithFullSampleMessage()
-        {
-            var response = browser.Post("/bet_request", with =>
-            {
-                // request is sent over HTTP
-                with.HttpRequest();
-                with.Body(Constants.fullSampleMessage);
-            });
-
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-        }
-
-
     }
 
     public class Constants
     {
-       public static string fullSampleMessage = @"{
-   ""small_blind"":10,
-   ""current_buy_in"":320,
-   ""pot"":400,
-   ""minimum_raise"":240,
-   ""dealer"":1,
-   ""orbits"":7,
-   ""in_action"":1,
-   ""players"":[
-      {
-         ""id"":0,
-         ""name"":""Albert"",
-         ""status"":""active"",
-         ""version"":""Default random player"",
-         ""stack"":1010,
-         ""bet"":320
-      },
-      {
-         ""id"":1,
-         ""name"":""Bob"",
-         ""status"":""active"",
-         ""version"":""Default random player"",
-         ""stack"":1590,
-         ""bet"":80,
-         ""hole_cards"":[
-            {
-               ""rank"":""6"",
-               ""suit"":""hearts""
-            },
-            {
-               ""rank"":""K"",
-               ""suit"":""spades""
-            }
-         ]
-      },
-      {
-         ""id"":2,
-         ""name"":""Chuck"",
-         ""status"":""out"",
-         ""version"":""Default random player"",
-         ""stack"":0,
-         ""bet"":0
-      }
-   ],
-   ""community_cards"":[
-      {
-         ""rank"":""4"",
-         ""suit"":""spades""
-      },
-      {
-         ""rank"":""A"",
-         ""suit"":""hearts""
-      },
-      {
-         ""rank"":""6"",
-         ""suit"":""clubs""
-      }
-   ]
-}";
+        public static string fullSampleGameState =
+            @"{  
+        'players':[    
+                {      'name':'Player 1',      'stack':1000,      'status':'active',      'bet':0,      'hole_cards':[],      'version':'Version name 1',    'id':0   },   
+                {      'name':'Player 2',      'stack':1000,      'status':'active',      'bet':0,      'hole_cards':[],      'version':'Version name 2',     'id':1    }  
+              ],  
+        'small_blind':10,  'orbits':0,  'dealer':0,  'community_cards':[],  'current_buy_in':0,  'pot':0}";
     }
 }
+
 // ReSharper restore InconsistentNaming

@@ -42,7 +42,7 @@
                         {
                             Console.WriteLine("GameState found!");
                             Console.WriteLine(gameState.small_blind);
-                            return "1";
+                            return "200";
                         }
                         break;
                     case "bet_request":
@@ -51,7 +51,7 @@
                         {
                             Console.WriteLine("GameState found!");
                             Console.WriteLine(gameState.small_blind);
-                            return "1";
+                            return "200";
                         }
                         
                         break;
