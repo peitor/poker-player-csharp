@@ -16,7 +16,12 @@ namespace Specs
         [Test]
         public void Get_check()
         {
-            var response = browser.Get("/check");
+            var response = browser.Post("/", with =>
+            {
+                // request is sent over HTTP
+                with.HttpRequest();
+                with.FormValue("action", "check");
+            });
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
@@ -25,7 +30,6 @@ namespace Specs
         public void Post_version()
         {
             var response = browser.Post("/version");
-
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
 

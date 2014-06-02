@@ -1,11 +1,11 @@
-﻿using System;
-
-namespace PokerPlayer
+﻿namespace PokerPlayer
 {
+    using System;
     using System.IO;
 
     using Nancy;
     using Nancy.IO;
+    using Nancy.Json;
     using Nancy.ModelBinding;
 
     using PokerPlayer.Generated;
@@ -13,6 +13,7 @@ namespace PokerPlayer
     /*
        Nancy Modules are globally discovered. Modules can be declared anywhere you like, just as long as they are available in the application domain at runtime.
    */
+
     public class PokerPlayerModule : NancyModule
     {
         private const string TeamName = "NancyLovers";
@@ -21,41 +22,61 @@ namespace PokerPlayer
 
         public PokerPlayerModule()
         {
-            this.Get["/check"] = x =>
+            Rootobject gameState;
+            this.Post["/"] = x =>
             {
-                return string.Concat("I am running! My team: ", TeamName);
-            };
-
-            this.Post["/version"] = x =>
-            {
-                return Version;
-            };
-
-
-            this.Post["/bet_request"] = x =>
-            {
-                // HACK: If Bind<> doesn't work use this ;-)
-                //   string content = Request.Body.ReadAsString();
-                //    JavaScriptSerializer xxx = new JavaScriptSerializer();
-                //    var gameState = xxx.Deserialize<GameState>(content);
-
-                GameState gameState = this.Bind<GameState>();
-                if (gameState != null)
+                var invoke = this.Bind<ActionCommand>();
+                Console.WriteLine("Command found: " + invoke.action);
+                            
+                switch (invoke.action)
                 {
-                    Console.WriteLine(gameState.small_blind);
-                    return "200"; // HttpStatusCode.OK
+                    case "check":
+                        return string.Concat("I am running! My team: ", TeamName);
+                        break;
+                    case "version":
+                        return Version;
+                        break;
+                    case "showdown":
+                        gameState = GetGameStateFromForm(this.Request.Form["game_state"]);
+                        if (gameState != null)
+                        {
+                            Console.WriteLine("GameState found!");
+                            Console.WriteLine(gameState.small_blind);
+                            return "1";
+                        }
+                        break;
+                    case "bet_request":
+                        gameState = GetGameStateFromForm(this.Request.Form["game_state"]);
+                        if (gameState != null)
+                        {
+                            Console.WriteLine("GameState found!");
+                            Console.WriteLine(gameState.small_blind);
+                            return "1";
+                        }
+                        
+                        break;
                 }
-
-                return "-1";
+                return HttpStatusCode.NotAcceptable;
             };
 
-            this.Post["/showdown"] = x =>
+        }
+
+        private static Rootobject GetGameStateFromForm(string input)
+        {
+            if (string.IsNullOrEmpty(input))
             {
-                return "Nothing";
-            };
+                return null;
+            }
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Deserialize<Rootobject>(input);
         }
     }
 
+    public class ActionCommand
+    {
+        public string action { get; set; }
+    }
 
     public static class RequestBodyExtensions
     {
