@@ -2,6 +2,8 @@
 
 namespace Specs
 {
+    using System.Globalization;
+
     using Nancy;
     using Nancy.Testing;
 
@@ -12,7 +14,7 @@ namespace Specs
     [TestFixture]
     public class PokerPlayerSpecs
     {
-        private readonly Browser browser = new Browser(with => with.Module(new PokerPlayerModule()));
+        private readonly Browser browser = new Browser(with => with.Module(new PlayerService()));
 
         [Test]
         public void Get_check()
@@ -47,7 +49,7 @@ namespace Specs
                     with.FormValue("game_state", Constants.fullSampleGameState);
                 });
 
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.AreEqual("0", response.StatusCode.ToString());
         }
 
         [Test]

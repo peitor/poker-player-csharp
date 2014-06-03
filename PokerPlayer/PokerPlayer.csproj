@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PokerPlayerModule.cs" />
+    <Compile Include="PlayerImpl.cs" />
+    <Compile Include="PlayerService.cs" />
     <Compile Include="Generated\GameState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
