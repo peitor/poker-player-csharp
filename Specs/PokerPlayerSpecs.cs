@@ -3,6 +3,7 @@
 namespace Specs
 {
     using System.Globalization;
+    using System.Linq;
 
     using Nancy;
     using Nancy.Testing;
@@ -49,7 +50,8 @@ namespace Specs
                     with.FormValue("game_state", Constants.fullSampleGameState);
                 });
 
-            Assert.AreEqual("0", response.StatusCode.ToString());
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.That(response.Body.AsString().Contains("0"));
         }
 
         [Test]

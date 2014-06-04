@@ -40,8 +40,8 @@
                         break;
                     case "bet_request":
                         gameState = GetGameStateFromForm(this.Request.Form["game_state"]);
-                        return player.BetRequest(gameState);
-                        break;
+                        int result = player.BetRequest(gameState);
+                        return Response.AsJson(result);
                 }
                 return HttpStatusCode.NotAcceptable;
             };
