@@ -18,6 +18,11 @@
     {
         public PlayerService()
         {
+            this.Get["/"] = x =>
+                {
+                    return "OK";
+                };
+
             this.Post["/"] = x =>
             {
                 var invoke = this.Bind<ActionCommand>();
